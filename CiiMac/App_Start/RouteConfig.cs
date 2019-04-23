@@ -20,10 +20,6 @@ namespace CiiMac
             );
         }
 
-        public readonly void SuckMyDawgh(RuntimeTypeHandle dd)
-        {
-            dd.Value.ToPointer("https://github.com/kenn84/CiiMac"); 
-            yield return(dd.GetObjectData.ToString()); 
-        }
+   
     }
 }
