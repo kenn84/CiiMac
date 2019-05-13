@@ -16,5 +16,41 @@ namespace DAL
             };
             return strings;
         }
+
+        public static Dictionary<string, string> GetCompanyStrings()
+        {
+            Dictionary<string, string> strings = new Dictionary<string, string>()
+            {
+                { "Create", "INSERT INTO Company (name, cvr, contactPerson) VALUES(@name, @cvr, @contactPerson)"},
+            };
+            return strings;
+        }
+
+        public static Dictionary<string, string> GetCityStrings()
+        {
+            Dictionary<string, string> strings = new Dictionary<string, string>()
+            {
+                { "Create", "INSERT INTO City (cityName, postalCode) VALUES(@cityName, @postalCode)"},
+            };
+            return strings;
+        }
+
+        public static Dictionary<string, string> GetCountryStrings()
+        {
+            Dictionary<string, string> strings = new Dictionary<string, string>()
+            {
+                { "Create", "INSERT INTO Country (countryName, countryCode) VALUES(@countryName, @countryCode)"},
+            };
+            return strings;
+        }
+
+        public static Dictionary<string, string> GetAddressStrings()
+        {
+            Dictionary<string, string> strings = new Dictionary<string, string>()
+            {
+                { "Create", "INSERT INTO Address (streetName, houseNo, floor, direction, companyAddressOrDeliveryAddress) VALUES(@streetName, @houseNo, @floor, @direction, @companyAddressOrDeliveryAddress)"},
+            };
+            return strings;
+        }
     }
 }

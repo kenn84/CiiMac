@@ -10,8 +10,6 @@ namespace Model
     [DataContract]
     public class Address
     {
-        [DataMember]
-        public bool CompanyAddressOrDeliveryAddress { get; set; }
 
         [DataMember]
         public string StreetName { get; set; }
@@ -24,5 +22,8 @@ namespace Model
 
         [DataMember]
         public string Direction { get; set; }
+
+        [DataMember]
+        public bool CompanyAddressOrDeliveryAddress { get; set; }
     }
 }

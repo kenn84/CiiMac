@@ -15,9 +15,6 @@ namespace DAL
         public int CreateLogin(Login login, Dictionary<string, byte[]> passwordHashAndSalt)
         {
             int loginId = 0;
-
-            string cmdText = SqlQueries.GetLoginStrings()["Create"];
-
             using (SqlConnection con = DBConnection.OpenCon())
             {
                 using (SqlCommand cmd = con.CreateCommand())
@@ -58,6 +55,145 @@ namespace DAL
             return loginId;
         }
 
+        public void CreateCompany(Login login, Company company, Dictionary<string, byte[]> passwordHashAndSalt)
+        {
+            int companyId = 0;
+            using (SqlConnection con = DBConnection.OpenCon())
+            {
+                using (SqlCommand cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = SqlQueries.GetCompanyStrings()["Create"];
+
+                    SqlParameter name = new SqlParameter("@name", System.Data.SqlDbType.Text, 55);
+                    name.Value = company.Name;
+
+                    SqlParameter cvr = new SqlParameter("@cvr", System.Data.SqlDbType.Text, 55);
+                    cvr.Value = company.CVR;
+
+                    SqlParameter contactPerson = new SqlParameter("@contactPerson", System.Data.SqlDbType.Int);
+                    contactPerson.Value = company.ContactPerson;
+
+
+                    cmd.Parameters.Add(name);
+                    cmd.Parameters.Add(cvr);
+                    cmd.Parameters.Add(contactPerson);
+
+                    try
+                    {
+                        companyId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw new FaultException(ex.ToString());
+                    }
+                }
+            }
+        }
+
+        public int CreateCountry(Country country)
+        {
+            int countryId = 0;
+            using (SqlConnection con = DBConnection.OpenCon())
+            {
+                using (SqlCommand cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = SqlQueries.GetCountryStrings()["Create"];
+
+                    SqlParameter countryName = new SqlParameter("@countryName", System.Data.SqlDbType.Text, 55);
+                    countryName.Value = country.CountryName;
+
+                    SqlParameter countryCode = new SqlParameter("@countryCode", System.Data.SqlDbType.Text, 55);
+                    countryCode.Value = country.CountryCode;
+
+                    cmd.Parameters.Add(countryName);
+                    cmd.Parameters.Add(countryCode);
+
+                    try
+                    {
+                        countryId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw new FaultException(ex.ToString());
+                    }
+                }
+            }
+            return countryId;
+        }
+
+        public int CreateCity(City city)
+        {
+            int cityId = 0;
+            using (SqlConnection con = DBConnection.OpenCon())
+            {
+                using (SqlCommand cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = SqlQueries.GetCityStrings()["Create"];
+
+                    SqlParameter cityName = new SqlParameter("@cityName", System.Data.SqlDbType.Text, 55);
+                    cityName.Value = city.CityName;
+
+                    SqlParameter postalCode = new SqlParameter("@postalCode", System.Data.SqlDbType.Text, 55);
+                    postalCode.Value = city.PostalCode;
+
+                    cmd.Parameters.Add(cityName);
+                    cmd.Parameters.Add(postalCode);
+
+                    try
+                    {
+                        cityId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw new FaultException(ex.ToString());
+                    }
+                }
+            }
+            return cityId;
+        }
+
+        public int CreateAddress(Address address)
+        {
+            int addressId = 0;
+            using (SqlConnection con = DBConnection.OpenCon())
+            {
+                using (SqlCommand cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = SqlQueries.GetCityStrings()["Create"];
+
+                    SqlParameter streetName = new SqlParameter("@streetName", System.Data.SqlDbType.Text, 55);
+                    streetName.Value = address.StreetName;
+
+                    SqlParameter houseNo = new SqlParameter("@houseNo", System.Data.SqlDbType.Int);
+                    houseNo.Value = address.HouseNo;
+
+                    SqlParameter floor = new SqlParameter("@floor", System.Data.SqlDbType.Int);
+                    floor.Value = address.Floor;
+
+                    SqlParameter direction = new SqlParameter("@direction", System.Data.SqlDbType.Text, 55);
+                    direction.Value = address.Direction;
+
+                    SqlParameter companyAddressOrDeliveryAddress = new SqlParameter("@companyAddressOrDeliveryAddress", System.Data.SqlDbType.Text, 55);
+                    companyAddressOrDeliveryAddress.Value = address.CompanyAddressOrDeliveryAddress;
+
+                    cmd.Parameters.Add(streetName);
+                    cmd.Parameters.Add(houseNo);
+                    cmd.Parameters.Add(floor);
+                    cmd.Parameters.Add(direction);
+                    cmd.Parameters.Add(companyAddressOrDeliveryAddress);
+
+                    try
+                    {
+                        addressId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw new FaultException(ex.ToString());
+                    }
+                }
+            }
+            return addressId;
+        }
     }
 }
 
