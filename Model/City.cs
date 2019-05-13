@@ -8,15 +8,12 @@ using System.Threading.Tasks;
 namespace Model
 {
     [DataContract]
-    public class Login
+    public class City
     {
         [DataMember]
-        public int Phone { get; set; }
+        public string CityName { get; set; }
 
         [DataMember]
-        public string Email { get; set; }
-
-        [DataMember]
-        public Enum Level { get; set; }
+        public int PostalCode { get; set; }
     }
 }

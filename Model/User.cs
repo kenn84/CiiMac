@@ -10,7 +10,10 @@ namespace Model
     [DataContract]
     public class User
     {
-        //[DataMember]
-        //bummer Kenneth dont like
+        [DataMember]
+        public string FirstName { get; set; }
+
+        [DataMember]
+        public string LastName { get; set; }
     }
 }

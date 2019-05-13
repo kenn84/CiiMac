@@ -8,18 +8,21 @@ using System.Threading.Tasks;
 namespace Model
 {
     [DataContract]
-    public class Company
+    public class Address
     {
         [DataMember]
-        public string Name { get; set; }
+        public bool CompanyAddressOrDeliveryAddress { get; set; }
 
         [DataMember]
-        public string CVR { get; set; }
+        public string StreetName { get; set; }
 
         [DataMember]
-        public string ContactPerson { get; set; }
+        public int HouseNo { get; set; }
 
         [DataMember]
-        public List<Address> CompanyAddresses { get; set; }
+        public int Floor { get; set; }
+
+        [DataMember]
+        public string Direction { get; set; }
     }
 }
