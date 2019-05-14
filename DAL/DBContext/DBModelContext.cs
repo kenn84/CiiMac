@@ -13,6 +13,10 @@ namespace DAL.DBContext
     {
         public DbSet<LoginDbModel> LoginDbModel { get; set; }
         public DbSet<CompanyDbModel> CompanyDbModel { get; set; }
+        public DbSet<CountryDbModel> CountryDbModel { get; set; }
+        public DbSet<AddressDbModel> AddressDbModel { get; set; }
+        public DbSet<CityDbModel> CityDbModel { get; set; }
+
 
     }
 }

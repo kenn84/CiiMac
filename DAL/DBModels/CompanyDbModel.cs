@@ -13,7 +13,7 @@ namespace DAL.DBModels
     {
         [Key]
         public Guid CompanyId { get; set; }
-
+        
 
         public Guid LoginId { get; set; }
         [ForeignKey("LoginId")]
@@ -27,6 +27,8 @@ namespace DAL.DBModels
 
         [Required]
         public string ContactPerson { get; set; }
+
+        public List<AddressDbModel> AddressList { get; set; }
 
     }
 }

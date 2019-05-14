@@ -52,11 +52,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBContext\DBModelContext.cs" />
+    <Compile Include="DBModels\AddressDbModel.cs" />
+    <Compile Include="DBModels\CityDbModel.cs" />
     <Compile Include="DBModels\CompanyDbModel.cs" />
+    <Compile Include="DBModels\CountryDbModel.cs" />
     <Compile Include="DBModels\LoginDbModel.cs" />
     <Compile Include="Migrations\201905140852100_EFTest.cs" />
     <Compile Include="Migrations\201905140852100_EFTest.Designer.cs">
       <DependentUpon>201905140852100_EFTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905141106072_EFTest1.cs" />
+    <Compile Include="Migrations\201905141106072_EFTest1.Designer.cs">
+      <DependentUpon>201905141106072_EFTest1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905141110036_EFTest2.cs" />
+    <Compile Include="Migrations\201905141110036_EFTest2.Designer.cs">
+      <DependentUpon>201905141110036_EFTest2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,6 +84,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905140852100_EFTest.resx">
       <DependentUpon>201905140852100_EFTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141106072_EFTest1.resx">
+      <DependentUpon>201905141106072_EFTest1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141110036_EFTest2.resx">
+      <DependentUpon>201905141110036_EFTest2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
