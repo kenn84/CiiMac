@@ -18,7 +18,6 @@ namespace Model
 
         [DataMember]
         public Enum Level { get; set; }
-
     }
     
 }
